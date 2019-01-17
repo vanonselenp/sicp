@@ -17,6 +17,23 @@
         ((= x 0) 0)
         ((< x 0) (- x))))
 
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
 (inc 42)
 
 (abs -1)
@@ -27,5 +44,7 @@
 (square 4)
 (sum-of-squares 3 4)
 (f 5)
+
+(sqrt 9)
 
 ; (and (> x 5) (< x 10))
