@@ -16,11 +16,10 @@
 (define (cube-root x)
   (cube-iter 1.0 x))
 
-(cube-root 27)
-
 (define (cube x)
   (* x x x))
 
+(cube-root 27)
 (cube-root (cube 79))
 (cube-root 1e60)
 (cube-root 1e-30)
